@@ -32,12 +32,12 @@ La funcionalidad principal incluye:
     npm install
 4. Inicia el servidor
 - En **modo desarrollo**
-      ```bash
-      npm run dev
+  ```bash
+  npm run dev
 - En **modo producciòn**
-      ```bash
-      npm start
-     ```
+  ```bash
+  npm start
+  ```
 ## Rutas de la api
 
 | Método | Ruta               | Descripción                    |
