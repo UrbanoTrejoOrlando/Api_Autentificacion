@@ -32,12 +32,12 @@ La funcionalidad principal incluye:
     npm install
 4. Inicia el servidor
    - En **modo desarrollo**
-   ```bash
-   npm run dev
-  - En **modo producciòn**
-   ```bash
-   npm start
-  ```
+      ```bash
+      npm run dev
+   - En **modo producciòn**
+      ```bash
+      npm start
+     ```
 ## Rutas de la api
 
 | Método | Ruta               | Descripción                    |
@@ -47,5 +47,69 @@ La funcionalidad principal incluye:
 | POST    | `/user`           | Crear un usuario nuevo         |
 | POST   | `/login`           | Inicio de sesion               |
 
+## Rutas disponibles
+### 🔸 Crear un nuevo usuario (POST `/user`)
 
+- **URL:** `http://localhost:3000/auth/user`
+- **Método:** POST
+- **Body (JSON):**
 
+```json
+{
+  "username":"orlando",
+  "password":"12345"
+}
+```
+- **Respuesta esperada: 201 Created**
+```json
+{
+  "username": "orlando",
+  "password": "12345",
+  "_id": "6902533b27f70134bdca5fc8",
+  "__v": 0
+}
+```
+
+### 🔸 Obtener todos los usuarios (GET `/users`)
+- **URL:** `http://localhost:3000/auth/users`
+- **Método:** GET
+- **Respuesta esperada: 200 OK**
+```json
+[
+  {
+    "_id": "6902533b27f70134bdca5fc8",
+    "username": "orlando",
+    "password": "12345",
+    "__v": 0
+  }
+]
+```
+### 🔸 Inicio de sesion (POST `/login`)
+
+- **URL:** `http://localhost:3000/auth/login`
+- **Método:** POST
+- **Body (JSON):**
+
+```json
+{
+  "username":"orlando",
+  "password":"12345"
+}
+```
+- **Respuesta esperada: 201 Created**
+```json
+{
+  "token": "token-falso-6902533b27f70134bdca5fc8"
+}
+```
+
+### 🔸 Acceder a la ruta protegida (solo con el token valido) (GET `/saludo-protegido`)
+- **URL:** `http://localhost:3000/greet/saludo-protegido`
+- **Método:** GET
+- **Headers:** Authorization: Bearer <token_obtenido_en_login>
+- **Respuesta esperada: 200 OK**
+```json
+{
+  "message": "Saludo protegido"
+}
+```
