@@ -31,10 +31,10 @@ La funcionalidad principal incluye:
    ```bash
     npm install
 4. Inicia el servidor
-   - En **modo desarrollo**
+- En **modo desarrollo**
       ```bash
       npm run dev
-   - En **modo producciòn**
+- En **modo producciòn**
       ```bash
       npm start
      ```
